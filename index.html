@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت کانفیگ (WireGuard & V2Ray)</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --accent: #22c55e;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        h0, h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--text);
+        }
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: rgba(0,0,0,0.2);
+            padding: 4px;
+            border-radius: 10px;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.95rem;
+            outline: none;
+        }
+        input:focus {
+            border-color: var(--primary);
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+        .btn-success {
+            background-color: var(--accent);
+        }
+        .btn-success:hover {
+            background-color: #16a34a;
+        }
+        .output-box {
+            margin-top: 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 0.85rem;
+            max-height: 120px;
+            overflow-y: auto;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>مدیریت کانفیگ‌های امن</h1>
+
+        <!-- تب‌ها -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('wg')">وای‌گارد (گیمینگ)</button>
+            <button class="tab-btn" onclick="switchTab('v2ray')">ویتوری (Subscription)</button>
+        </div>
+
+        <!-- تب وای‌گارد -->
+        <div id="wg-tab" class="tab-content active">
+            <div class="form-group">
+                <label>آدرس و پورت سرور (Endpoint)</label>
+                <input type="text" id="wg-endpoint" value="104.18.7.85:51820">
+            </div>
+            <div class="form-group">
+                <label>کلید عمومی سرور (PublicKey)</label>
+                <input type="text" id="wg-pubkey" placeholder="کلید عمومی سرور را وارد کنید">
+            </div>
+            <div class="form-group">
+                <label>تنظیم MTU (بهینه‌سازی برای پابجی)</label>
+                <input type="text" id="wg-mtu" value="1280">
+            </div>
+            <button class="btn btn-success" onclick="generateWireguard()">ساخت و دانلود کانفیگ WireGuard</button>
+        </div>
+
+        <!-- تب ویتوری -->
+        <div id="v2ray-tab" class="tab-content">
+            <div class="form-group">
+                <label>لینک ساب‌سکرایبشن شما</label>
+                <input type="text" id="v2ray-sub" value="https://nlp.hupcloud.com:2096/sub/ata/ZLD4fBijDKlMEqHN">
+            </div>
+            <button class="btn" onclick="copySubLink()">کپی کردن لینک ساب</button>
+            <div class="output-box" id="sub-output">لینک آماده برای استفاده در v2rayNG</div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            if(tabName === 'wg') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('wg-tab').classList.add('active');
+            } else {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('v2ray-tab').classList.add('active');
+            }
+        }
+
+        function generateWireguard() {
+            const endpoint = document.getElementById('wg-endpoint').value;
+            const pubkey = document.getElementById('wg-pubkey').value;
+            const mtu = document.getElementById('wg-mtu').value;
+
+            const configContent = `[Interface]
+PrivateKey = <YOUR_CLIENT_PRIVATE_KEY>
+Address = 10.0.0.2/32
+DNS = 1.1.1.1
+MTU = ${mtu}
+
+[Peer]
+PublicKey = ${pubkey}
+Endpoint = ${endpoint}
+AllowedIPs = 0.0.0.0/0, ::/0`;
+
+            const blob = new Blob([configContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'gaming-config.conf';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function copySubLink() {
+            const subInput = document.getElementById('v2ray-sub');
+            subInput.select();
+            subInput.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(subInput.value);
+            document.getElementById('sub-output').innerText = "لینک ساب با موفقیت کپی شد!";
+        }
+    </script>
+</body>
+  </html>
+  
