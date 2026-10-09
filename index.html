@@ -180,7 +180,7 @@ input,select{width:100%;padding:10px;background:#0a1020;border:1px solid var(--b
     var totalUsers = USERS.length;
     var activeUsers = USERS.filter(function(u){ return u.active; }).length;
     document.getElementById("statusMeta").innerHTML =
-      "تکل کاربران ثبت‌شده: <strong style='color:#86efac'>" + totalUsers + "</strong> نفر<br>" +
+      "تعداد کاربران ثبت‌شده: <strong style='color:#86efac'>" + totalUsers + "</strong> نفر<br>" +
       "کاربران فعال: <strong style='color:#38bdf8'>" + activeUsers + "</strong> نفر<br>" +
       "<span class='owner'>پنل اختصاصی PUBGメAZVIX</span>";
     
@@ -198,10 +198,14 @@ input,select{width:100%;padding:10px;background:#0a1020;border:1px solid var(--b
     }
     var html = "";
     USERS.forEach(function(u, idx) {
+      var allLinks = u.links.join("\n");
       html += '<div class="cfg"><strong>👤 ' + u.name + '</strong> — <span style="color:' + (u.active?'#86efac':'#fca5a5') + '">' + (u.active?'فعال':'غیرفعال') + '</span><br>' +
         '<span style="font-size:0.8rem;color:var(--muted)">حجم: ' + u.gb + 'GB • اعتبار: ' + u.days + ' روز</span>' +
+        '<div style="margin-top:6px"><label style="font-size:0.75rem;color:var(--accent)">لینک‌های کانفیگ اختصاصی:</label>' +
+        '<textarea readonly style="width:100%;height:60px;font-size:0.7rem;background:#05080f;color:#86efac;direction:ltr;text-align:left;font-family:monospace;padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.1)">' + allLinks + '</textarea></div>' +
         '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">' +
-        '<button type="button" class="btn btn-p" data-a="links" data-i="' + idx + '">📦 نمایش لینک‌ها</button>' +
+        '<button type="button" class="btn btn-p" data-a="copycfg" data-i="' + idx + '">📋 کپی کانفیگ</button>' +
+        '<button type="button" class="btn btn-o" data-a="links" data-i="' + idx + '">📦 نمایش در پنجره جدید</button>' +
         '<button type="button" class="btn ' + (u.active?'btn-d':'btn-s') + '" data-a="toggle" data-i="' + idx + '">' + (u.active?'غیرفعال‌سازی':'فعال‌سازی') + '</button>' +
         '<button type="button" class="btn btn-d" data-a="del" data-i="' + idx + '">🗑️ حذف</button>' +
         '</div></div>';
@@ -240,12 +244,13 @@ input,select{width:100%;padding:10px;background:#0a1020;border:1px solid var(--b
   function handleAction(a, idx) {
     var u = USERS[idx];
     if (!u) return;
-    if (a === "links") {
+    if (a === "copycfg") {
+      copyText(u.links.join("\n"));
+    } else if (a === "links") {
       var allLinks = u.links.join("\n");
-      copyText(allLinks);
       var win = window.open("", "_blank");
       if (win) {
-        win.document.write('<!DOCTYPE html><html dir="rtl"><head><title>لینک‌های ' + u.name + '</title></head><body style="background:#111;color:#fff;padding:20px;font-family:Tahoma"><h2>لینک‌های اختصاصی ' + u.name + '</h2><p style="color:#a78bfa">حجم: ' + u.gb + ' GB | اعتبار: ' + u.days + ' روز</p><textarea style="width:100%;height:200px;background:#222;color:#86efac;direction:ltr;font-family:monospace;padding:10px">' + allLinks + '</textarea><br><br><p style="color:#38bdf8">لینک‌ها کپی شدند!</p></body></html>');
+        win.document.write('<!DOCTYPE html><html dir="rtl"><head><title>لینک‌های ' + u.name + '</title></head><body style="background:#111;color:#fff;padding:20px;font-family:Tahoma"><h2>لینک‌های اختصاصی ' + u.name + '</h2><p style="color:#a78bfa">حجم: ' + u.gb + ' GB | اعتبار: ' + u.days + ' روز</p><textarea style="width:100%;height:200px;background:#222;color:#86efac;direction:ltr;font-family:monospace;padding:10px">' + allLinks + '</textarea><br><br><p style="color:#38bdf8">می‌توانید کپی کنید!</p></body></html>');
       }
     } else if (a === "toggle") {
       u.active = !u.active;
