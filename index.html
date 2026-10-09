@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>پنل اختصاصی V2Ray | PUBGメAZVIX</title>
+<title>پنل مدیریت هوشمند V2Ray | PUBGメAZVIX</title>
 <style>
 :root{--accent:#38bdf8;--accent2:#e879f9;--card:rgba(12,18,34,0.95);--text:#e2e8f0;--muted:#94a3b8;--border:#38bdf855}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -19,65 +19,90 @@ header h1{font-size:1.3rem;background:linear-gradient(90deg,var(--accent),#60a5f
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px}
 .card h2{font-size:1.05rem;color:var(--accent);margin-bottom:10px}
 label{display:block;font-size:0.82rem;color:var(--muted);margin:8px 0 4px}
-input,textarea{width:100%;padding:10px;background:#0a1020;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem}
-textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;text-align:left}
+input,select{width:100%;padding:10px;background:#0a1020;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
 .btn{padding:11px 14px;border:none;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;font-size:0.86rem;margin:3px;display:inline-flex;align-items:center;gap:5px}
 .btn-p{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#05080f}
 .btn-o{background:transparent;border:1px solid var(--border);color:var(--text)}
 .btn-g{background:linear-gradient(135deg,#f43f5e,#fb923c);color:#fff}
+.btn-d{background:rgba(239,68,68,0.15);border:1px solid #ef4444;color:#fca5a5}
+.btn-s{background:rgba(34,197,94,0.15);border:1px solid #22c55e;color:#86efac}
 .cfg{background:rgba(10,16,32,0.8);border-radius:12px;padding:12px;margin:10px 0;border:1px solid rgba(255,255,255,0.08)}
 .cfg strong{color:var(--accent)}
 .meta{font-size:0.84rem;color:var(--muted);line-height:1.8}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:#0a1220;border:1px solid var(--accent);padding:12px 18px;border-radius:12px;z-index:99;opacity:0;transition:0.3s;font-weight:600;max-width:90%;text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 .owner{color:#a78bfa;font-size:0.85rem;font-weight:700}
-.note{font-size:0.78rem;color:var(--muted);margin-top:10px;padding:10px;background:rgba(245,158,11,0.1);border-radius:8px;border-right:3px solid #f59e0b}
+.quota{height:8px;border-radius:999px;background:#0f172a;overflow:hidden;margin-top:6px;border:1px solid rgba(255,255,255,0.08)}
+.quota>div{height:100%;border-radius:999px}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>🚀 پنل حرفه‌ای V2Ray | ساب مارزبان</h1>
-    <p style="color:var(--muted);margin-top:6px;font-size:0.9rem">مدیریت کانفیگ‌های VLESS و Shadowsocks | PUBGメAZVIX</p>
-    <span class="badge">مالک PUBGメAZVIX</span>
+    <h1>🛡️ پنل مدیریت هوشمند V2Ray</h1>
+    <p style="color:var(--muted);margin-top:6px;font-size:0.9rem">ساخت و مدیریت کاربران VLESS و Shadowsocks | PUBGメAZVIX</p>
+    <span class="badge">مدیر: PUBGメAZVIX</span>
   </header>
 
   <div class="nav">
     <button type="button" class="active" data-tab="dash">📊 داشبورد</button>
-    <button type="button" data-tab="configs">📂 لیست کانفیگ‌ها</button>
+    <button type="button" data-tab="create">➕ ساخت کاربر جدید</button>
+    <button type="button" data-tab="list">📂 لیست کاربران</button>
     <button type="button" data-tab="sub">🔗 لینک ساب اصلی</button>
   </div>
 
   <div id="tab-dash" class="tab active">
     <div class="card">
-      <h2>📊 وضعیت کل</h2>
+      <h2>📊 وضعیت پنل مدیریت</h2>
       <div class="meta" id="statusMeta">...</div>
+      <div class="quota"><div id="quotaFill" style="width:0%"></div></div>
       <div style="margin-top:14px">
-        <button type="button" class="btn btn-p" id="btnCopyAll">📋 کپی همه لینک‌ها</button>
-        <button type="button" class="btn btn-g" id="btnExportSub">📦 خروجی ساب باکس</button>
+        <button type="button" class="btn btn-p" id="btnCopyAll">📋 کپی تمام کانفیگ‌های فعال</button>
       </div>
     </div>
   </div>
 
-  <div id="tab-configs" class="tab">
+  <div id="tab-create" class="tab">
     <div class="card">
-      <h2>📂 کانفیگ‌های فعال (VLESS & Shadowsocks)</h2>
-      <div id="cfgList"></div>
+      <h2>➕ ساخت اشتراک / کاربر جدید</h2>
+      <label>نام کاربر / مشتری</label>
+      <input type="text" id="username" placeholder="مثال: Arsin_Gamer"/>
+      <div class="row">
+        <div><label>حجم (گیگابایت)</label><input type="number" id="userGB" min="1" max="1000" value="30"/></div>
+        <div><label>اعتبار (روز)</label><input type="number" id="userDays" min="1" max="365" value="30"/></div>
+      </div>
+      <label>انتخاب سرور پایه</label>
+      <select id="serverType">
+        <option value="all">همه سرورها (پکیج کامل VLESS + Shadowsocks)</option>
+        <option value="germany">🇩🇪 سرور تانل آلمان</option>
+        <option value="france">🇫🇷 سرور تانل فرانسه</option>
+        <option value="netmelli">💥 سرور ویژه نت ملی (Raket)</option>
+      </select>
+      <div style="margin-top:14px">
+        <button type="button" class="btn btn-p" id="btnCreateUser">✨ ایجاد کاربر و تولید کانفیگ</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-list" class="tab">
+    <div class="card">
+      <h2>📂 لیست کاربران ثبت‌شده</h2>
+      <div id="userList"></div>
     </div>
   </div>
 
   <div id="tab-sub" class="tab">
     <div class="card">
-      <h2>🔗 لینک ساب اصلی مارزبان</h2>
-      <p class="meta">لینک ساب اختصاصی شما که از سرور دریافت شده است:</p>
-      <label>لینک ساب HTTPS</label>
-      <input type="text" id="subHttps" readonly value="https://sab.lynch.ir/sub/djMsMTQzNzA3LDE3OTE1MzcxODY.dEAwIVon_oSefLDuVWccQhfJ1-f6sGZ75xRG2MBE_tk" style="direction:ltr;text-align:left;color:#86efac;font-family:monospace;font-size:0.8rem"/>
-      <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px">
+      <h2>🔗 لینک ساب مارزبان اصلی</h2>
+      <p class="meta">لینک ساب اصلی متصل به سرور شما:</p>
+      <input type="text" id="subUrlInput" readonly value="https://sab.lynch.ir/sub/djMsMTQzNzA3LDE3OTE1MzcxODY.dEAwIVon_oSefLDuVWccQhfJ1-f6sGZ75xRG2MBE_tk" style="direction:ltr;text-align:left;color:#86efac;font-family:monospace;font-size:0.8rem"/>
+      <div style="margin-top:10px;display:flex;gap:6px">
         <button type="button" class="btn btn-p" id="btnCopySub">📋 کپی لینک ساب</button>
-        <button type="button" class="btn btn-g" id="btnOpenSub">🌐 باز کردن لینک ساب</button>
+        <button type="button" class="btn btn-g" id="btnOpenSub">🌐 باز کردن لینک</button>
       </div>
-      <div class="note">اگر کانفیگ‌ها قطع شدند، لینک ساب خود را داخل نرم‌افزار آپدیت کنید. مالک PUBGメAZVIX</div>
     </div>
   </div>
 </div>
@@ -85,16 +110,16 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
 
 <script>
 (function(){
-  var CONFIGS = [
-    {name: "🔵 [0 B-10.0 GB] (Arsin)", link: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqaTFtbU1vc0c5ck9sSHByc2hleXc0NUxSUVNVN0tHcw==@1.1.1.1:1080#%5B0%20B-10.0%20GB%5D%20%28Arsin%29", type: "Shadowsocks"},
-    {name: "💥 🚀 Raket · ویژه نت ملی", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@gadfather.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=gadfather.zovip2.ir&sni=gadfather.zovip2.ir&fp=chrome&vcn=gadfather.zovip2.ir&alpn=http%2F1.1#%E2%97%8F%20%F0%9F%9A%80%20Raket%20%C2%B7%20%D9%88%DB%8C%DA%98%D9%87%20%D9%86%D8%AA%20%D9%85%D9%84%DB%8C", type: "VLESS WS+TLS"},
-    {name: "🇩🇪 𝐁𝐄𝐑𝐋𝐈𝐍 · تانل", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@fun.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=toping.zovip2.ir&sni=toping.zovip2.ir&fp=chrome&vcn=toping.zovip2.ir&alpn=http%2F1.1#%E2%97%8F%20%F0%9F%87%A9%F0%9F%87%AA%20%F0%9D%90%81%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%A7%20%C2%B7%20%D8%AA%D8%A7%D9%86%D9%84", type: "VLESS WS+TLS"},
-    {name: "🇫🇷 𝐏𝐀𝐑𝐈𝐒 · تانل", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@marz.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=marz.zovip2.ir&sni=marz.zovip2.ir&fp=chrome&vcn=marz.zovip2.ir&alpn=http%2F1.1#%E2%97%8F%20%F0%9F%87%AB%F0%9F%87%B7%20%F0%9D%90%8F%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%A2%F0%9D%90%AC%20%C2%B7%20%D8%AA%D8%A7%D9%86%D9%84", type: "VLESS WS+TLS"},
-    {name: "🇳🇱 𝐀𝐦𝐬𝐭𝐞𝐫𝐝𝐚𝐦 · تانل", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@toping.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=toping.zovip2.ir&sni=toping.zovip2.ir&fp=chrome&vcn=toping.zovip2.ir&alpn=http%2F1.1#%E2%97%8F%20%F0%9F%87%B3%F0%9F%87%B1%20%F0%9D%90%80%F0%9D%90%A6%F0%9D%90%AC%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%9D%F0%9D%90%9A%F0%9D%90%A6%20%C2%B7%20%D8%AA%D8%A7%D9%86%D9%84", type: "VLESS WS+TLS"},
-    {name: "🇱🇻 𝐋𝐚𝐭𝐯𝐢𝐚 · 𝟤 تانل", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@gadfather.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=gadfather.zovip2.ir&sni=gadfather.zovip2.ir&fp=chrome&vcn=gadfather.zovip2.ir&alpn=http%2F1.1#%E2%97%8F%20%F0%9F%87%B1%F0%9F%87%BB%20%F0%9D%90%8B%F0%9D%90%9A%F0%9D%90%AD%F0%9D%90%AF%F0%9D%90%A2%F0%9D%90%9A%20%C2%B7%20%F0%9D%9F%90%20%D8%AA%D8%A7%D9%8*9%D8%AA%D8%A7%D9%86%D9%84", type: "VLESS WS+TLS"}
+  var STORAGE_KEY = "azvix_v2ray_panel_users_v1";
+  var USERS = [];
+  
+  var BASE_SERVERS = [
+    {name: "Shadowsocks [Arsin]", type: "shadowsocks", link: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqaTFtbU1vc0c5ck9sSHByc2hleXc0NUxSUVNVN0tHcw==@1.1.1.1:1080"},
+    {name: "💥 Raket · ویژه نت ملی", type: "vless", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@gadfather.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=gadfather.zovip2.ir&sni=gadfather.zovip2.ir&fp=chrome"},
+    {name: "🇩🇪 𝐁𝐄𝐑𝐋𝐈𝐍 · تانل آلمان", type: "vless", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@fun.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=toping.zovip2.ir&sni=toping.zovip2.ir&fp=chrome"},
+    {name: "🇫🇷 𝐏𝐀𝐑𝐈𝐒 · تانل فرانسه", type: "vless", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@marz.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=marz.zovip2.ir&sni=marz.zovip2.ir&fp=chrome"},
+    {name: "🇳🇱 𝐀𝐦𝐬𝐭𝐞𝐫𝐝𝐚𝐦 · تانل هلند", type: "vless", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@toping.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=toping.zovip2.ir&sni=toping.zovip2.ir&fp=chrome"}
   ];
-
-  var SUB_URL = "https://sab.lynch.ir/sub/djMsMTQzNzA3LDE3OTE1MzcxODY.dEAwIVon_oSefLDuVWccQhfJ1-f6sGZ75xRG2MBE_tk";
 
   function toast(msg) {
     var t = document.getElementById("toast");
@@ -111,12 +136,23 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     var el = document.getElementById("tab-" + id);
     if (el) el.classList.add("active");
     if (id === "dash") renderDash();
-    if (id === "configs") renderList();
+    if (id === "list") renderUsers();
   }
 
   document.querySelectorAll(".nav button").forEach(function(btn){
     btn.addEventListener("click", function(){ switchTab(btn.getAttribute("data-tab")); });
   });
+
+  function loadUsers() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      USERS = raw ? JSON.parse(raw) : [];
+    } catch(e) { USERS = []; }
+  }
+
+  function saveUsers() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(USERS));
+  }
 
   function copyText(text) {
     if (navigator.clipboard && navigator.clipboard.writeText)
@@ -125,7 +161,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
   }
   function fallback(text) {
     var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
-    try { document.execCommand("copy"); toast("✅ کپی شد"); } catch(e) { toast("❌ کپی نشد"); }
+    try { document.execCommand("copy"); toast("✅ کپی شد"); } catch(e) { toast("❌ خطا در کپی"); }
     document.body.removeChild(ta);
   }
 
@@ -136,67 +172,113 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
       qr.make();
       return qr.createSvgTag({cellSize: 3, margin: 4});
     } catch(e) {
-      return '<div style="color:red;padding:20px">خطا در بارکد</div>';
+      return '<div style="color:red">خطا در بارکد</div>';
     }
   }
 
   function renderDash() {
+    var totalUsers = USERS.length;
+    var activeUsers = USERS.filter(function(u){ return u.active; }).length;
     document.getElementById("statusMeta").innerHTML =
-      "تعداد کانفیگ‌های بارگذاری شده: <strong style='color:#86efac'>" + CONFIGS.length + "</strong> کانفیگ<br>" +
-      "وضعیت لینک ساب: <strong style='color:#38bdf8'>متصل به سرور مارزبان</strong><br>" +
-      "<span class='owner'>مدیریت توسط PUBGメAZVIX</span>";
+      "تکل کاربران ثبت‌شده: <strong style='color:#86efac'>" + totalUsers + "</strong> نفر<br>" +
+      "کاربران فعال: <strong style='color:#38bdf8'>" + activeUsers + "</strong> نفر<br>" +
+      "<span class='owner'>پنل اختصاصی PUBGメAZVIX</span>";
+    
+    var fill = document.getElementById("quotaFill");
+    fill.style.width = Math.min(100, (totalUsers * 10)) + "%";
+    fill.style.background = "#38bdf8";
   }
 
-  function renderList() {
-    var list = document.getElementById("cfgList");
+  function renderUsers() {
+    renderDash();
+    var box = document.getElementById("userList");
+    if (!USERS.length) {
+      box.innerHTML = '<p style="color:var(--muted);text-align:center;padding:16px">هنوز کاربری نساخته‌اید</p>';
+      return;
+    }
     var html = "";
-    CONFIGS.forEach(function(cfg, i) {
-      html += '<div class="cfg"><strong>' + cfg.name + '</strong><br>' +
-        '<span style="font-size:0.75rem;color:var(--accent)">پروتکل: ' + cfg.type + '</span>' +
+    USERS.forEach(function(u, idx) {
+      html += '<div class="cfg"><strong>👤 ' + u.name + '</strong> — <span style="color:' + (u.active?'#86efac':'#fca5a5') + '">' + (u.active?'فعال':'غیرفعال') + '</span><br>' +
+        '<span style="font-size:0.8rem;color:var(--muted)">حجم: ' + u.gb + 'GB • اعتبار: ' + u.days + ' روز</span>' +
         '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">' +
-        '<button type="button" class="btn btn-p" data-a="copy" data-i="' + i + '">📋 کپی لینک</button>' +
-        '<button type="button" class="btn btn-g" data-a="qr" data-i="' + i + '">📱 بارکد QR</button>' +
+        '<button type="button" class="btn btn-p" data-a="links" data-i="' + idx + '">📦 نمایش لینک‌ها</button>' +
+        '<button type="button" class="btn ' + (u.active?'btn-d':'btn-s') + '" data-a="toggle" data-i="' + idx + '">' + (u.active?'غیرفعال‌سازی':'فعال‌سازی') + '</button>' +
+        '<button type="button" class="btn btn-d" data-a="del" data-i="' + idx + '">🗑️ حذف</button>' +
         '</div></div>';
     });
-    list.innerHTML = html;
+    box.innerHTML = html;
   }
 
-  function handleAction(a, i) {
-    var cfg = CONFIGS[i];
-    if (!cfg) return;
-    if (a === "copy") {
-      copyText(cfg.link);
-    } else if (a === "qr") {
-      var svgCode = makeLocalQrSvg(cfg.link);
+  function createUser() {
+    var name = (document.getElementById("username").value || "").trim();
+    if (!name) { toast("⚠ نام کاربر را وارد کنید"); return; }
+    var gb = parseInt(document.getElementById("userGB").value, 10) || 30;
+    var days = parseInt(document.getElementById("userDays").value, 10) || 30;
+    var sType = document.getElementById("serverType").value;
+
+    var links = BASE_SERVERS.map(function(s){
+      var tag = encodeURIComponent("[" + gb + "GB-" + name + "]");
+      return s.link + "#" + tag;
+    });
+
+    USERS.unshift({
+      id: "usr_" + Date.now(),
+      name: name,
+      gb: gb,
+      days: days,
+      active: true,
+      links: links,
+      createdAt: new Date().toLocaleDateString("fa-IR")
+    });
+
+    saveUsers();
+    document.getElementById("username").value = "";
+    toast("✅ کاربر با موفقیت ساخته شد");
+    switchTab("list");
+  }
+
+  function handleAction(a, idx) {
+    var u = USERS[idx];
+    if (!u) return;
+    if (a === "links") {
+      var allLinks = u.links.join("\n");
+      copyText(allLinks);
       var win = window.open("", "_blank");
-      if(win) {
-        win.document.write('<!DOCTYPE html><html dir="rtl"><head><title>بارکد کانفیگ</title></head><body style="background:#111;color:#fff;text-align:center;padding:30px;font-family:Tahoma"><h2>بارکد کانفیگ</h2><p style="color:#a78bfa">' + cfg.name + '</p><div style="background:#fff;padding:20px;border-radius:16px;display:inline-block;margin-top:20px">' + svgCode + '</div></body></html>');
+      if (win) {
+        win.document.write('<!DOCTYPE html><html dir="rtl"><head><title>لینک‌های ' + u.name + '</title></head><body style="background:#111;color:#fff;padding:20px;font-family:Tahoma"><h2>لینک‌های اختصاصی ' + u.name + '</h2><p style="color:#a78bfa">حجم: ' + u.gb + ' GB | اعتبار: ' + u.days + ' روز</p><textarea style="width:100%;height:200px;background:#222;color:#86efac;direction:ltr;font-family:monospace;padding:10px">' + allLinks + '</textarea><br><br><p style="color:#38bdf8">لینک‌ها کپی شدند!</p></body></html>');
       }
+    } else if (a === "toggle") {
+      u.active = !u.active;
+      saveUsers();
+      renderUsers();
+      toast("🔄 وضعیت تغییر کرد");
+    } else if (a === "del") {
+      if (!confirm("حذف کاربر؟")) return;
+      USERS.splice(idx, 1);
+      saveUsers();
+      renderUsers();
+      toast("🗑️ حذف شد");
     }
   }
 
-  document.getElementById("btnCopySub").addEventListener("click", function(){ copyText(SUB_URL); });
-  document.getElementById("btnOpenSub").addEventListener("click", function(){ window.open(SUB_URL, "_blank"); });
+  document.getElementById("btnCreateUser").addEventListener("click", function(e){ e.preventDefault(); createUser(); });
+  document.getElementById("btnCopySub").addEventListener("click", function(){ copyText(document.getElementById("subUrlInput").value); });
+  document.getElementById("btnOpenSub").addEventListener("click", function(){ window.open(document.getElementById("subUrlInput").value, "_blank"); });
   document.getElementById("btnCopyAll").addEventListener("click", function(){
-    var all = CONFIGS.map(function(c){ return c.link; }).join("\n");
-    copyText(all);
-  });
-  document.getElementById("btnExportSub").addEventListener("click", function(){
-    copyText(SUB_URL);
-    toast("📦 لینک ساب برای ساب‌باکس کپی شد");
+    var activeLinks = [];
+    USERS.forEach(function(u){ if(u.active) activeLinks = activeLinks.concat(u.links); });
+    if (!activeLinks.length) { toast("⚠ هیچ کاربر فعالی نیست"); return; }
+    copyText(activeLinks.join("\n"));
   });
 
   document.body.addEventListener("click", function(e){
     var btn = e.target.closest("button[data-a]");
     if (!btn) return;
-    var a = btn.getAttribute("data-a");
-    var i = parseInt(btn.getAttribute("data-i"), 10);
-    handleAction(a, i);
+    handleAction(btn.getAttribute("data-a"), parseInt(btn.getAttribute("data-i"), 10));
   });
 
+  loadUsers();
   renderDash();
-  renderList();
-  toast("پنل V2Ray آماده است");
 })();
 </script>
 </body>
