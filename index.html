@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>پنل مدیریت هوشمند V2Ray | PUBGメAZVIX</title>
+<title>پنل 🚀 وب‌گردی پرسرعت | Ahmad</title>
 <style>
-:root{--accent:#38bdf8;--accent2:#e879f9;--card:rgba(12,18,34,0.95);--text:#e2e8f0;--muted:#94a3b8;--border:#38bdf855}
+:root{--accent:#3b82f6;--accent2:#10b981;--card:rgba(12,18,34,0.95);--text:#e2e8f0;--muted:#94a3b8;--border:#3b82f655}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Tahoma,"Segoe UI",sans-serif;background:linear-gradient(145deg,#05080f,#0c1222);color:var(--text);min-height:100vh;line-height:1.65;padding:14px}
 .wrap{max-width:780px;margin:0 auto}
@@ -14,95 +14,94 @@ header h1{font-size:1.3rem;background:linear-gradient(90deg,var(--accent),#60a5f
 .badge{display:inline-block;margin-top:8px;padding:4px 12px;border:1px solid var(--accent);border-radius:999px;font-size:0.75rem;color:var(--accent)}
 .nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
 .nav button{padding:10px 16px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:12px;cursor:pointer;font-weight:700;font-size:0.88rem;font-family:inherit}
-.nav button.active,.nav button:hover{background:linear-gradient(135deg,#38bdf833,#e879f928);border-color:var(--accent)}
+.nav button.active,.nav button:hover{background:linear-gradient(135deg,#3b82f633,#10b98128);border-color:var(--accent)}
 .tab{display:none}.tab.active{display:block}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px}
 .card h2{font-size:1.05rem;color:var(--accent);margin-bottom:10px}
 label{display:block;font-size:0.82rem;color:var(--muted);margin:8px 0 4px}
-input,select{width:100%;padding:10px;background:#0a1020;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+input,textarea{width:100%;padding:10px;background:#0a1020;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem}
+textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;text-align:left}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 @media(max-width:600px){.row{grid-template-columns:1fr}}
 .btn{padding:11px 14px;border:none;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;font-size:0.86rem;margin:3px;display:inline-flex;align-items:center;gap:5px}
+.btn:disabled{opacity:0.45;cursor:not-allowed}
 .btn-p{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#05080f}
 .btn-o{background:transparent;border:1px solid var(--border);color:var(--text)}
-.btn-g{background:linear-gradient(135deg,#f43f5e,#fb923c);color:#fff}
 .btn-d{background:rgba(239,68,68,0.15);border:1px solid #ef4444;color:#fca5a5}
 .btn-s{background:rgba(34,197,94,0.15);border:1px solid #22c55e;color:#86efac}
+.btn-w{background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fcd34d}
+.btn-g{background:linear-gradient(135deg,#f43f5e,#fb923c);color:#fff}
 .cfg{background:rgba(10,16,32,0.8);border-radius:12px;padding:12px;margin:10px 0;border:1px solid rgba(255,255,255,0.08)}
 .cfg strong{color:var(--accent)}
 .meta{font-size:0.84rem;color:var(--muted);line-height:1.8}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:#0a1220;border:1px solid var(--accent);padding:12px 18px;border-radius:12px;z-index:99;opacity:0;transition:0.3s;font-weight:600;max-width:90%;text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-.owner{color:#a78bfa;font-size:0.85rem;font-weight:700}
 .quota{height:8px;border-radius:999px;background:#0f172a;overflow:hidden;margin-top:6px;border:1px solid rgba(255,255,255,0.08)}
 .quota>div{height:100%;border-radius:999px}
+.owner{color:#a78bfa;font-size:0.85rem;font-weight:700}
+.note{font-size:0.78rem;color:var(--muted);margin-top:10px;padding:10px;background:rgba(245,158,11,0.1);border-radius:8px;border-right:3px solid #f59e0b}
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>🛡️ پنل مدیریت هوشمند V2Ray</h1>
-    <p style="color:var(--muted);margin-top:6px;font-size:0.9rem">ساخت و مدیریت کاربران VLESS و Shadowsocks | PUBGメAZVIX</p>
-    <span class="badge">مدیر: PUBGメAZVIX</span>
+    <h1>🚀 پنل تخصصی وب‌گردی | Ahmad</h1>
+    <p style="color:var(--muted);margin-top:6px;font-size:0.9rem">سیستم مدیریت کانفیگ WireGuard | سرعت بالا و بدون محدودیت</p>
+    <span class="badge">مدیر: Ahmad</span>
   </header>
 
   <div class="nav">
     <button type="button" class="active" data-tab="dash">📊 داشبورد</button>
-    <button type="button" data-tab="create">➕ ساخت کاربر جدید</button>
-    <button type="button" data-tab="list">📂 لیست کاربران</button>
-    <button type="button" data-tab="sub">🔗 لینک ساب اصلی</button>
+    <button type="button" data-tab="create">➕ ساخت کانفیگ</button>
+    <button type="button" data-tab="configs">📂 کانفیگ‌ها</button>
+    <button type="button" data-tab="sub">🔗 لینک ساب</button>
   </div>
 
   <div id="tab-dash" class="tab active">
     <div class="card">
-      <h2>📊 وضعیت پنل مدیریت</h2>
+      <h2>📊 وضعیت پنل وب‌گردی</h2>
       <div class="meta" id="statusMeta">...</div>
       <div class="quota"><div id="quotaFill" style="width:0%"></div></div>
-      <div style="margin-top:14px">
-        <button type="button" class="btn btn-p" id="btnCopyAll">📋 کپی تمام کانفیگ‌های فعال</button>
-      </div>
+      <div id="dashList" style="margin-top:12px"></div>
     </div>
   </div>
 
   <div id="tab-create" class="tab">
     <div class="card">
-      <h2>➕ ساخت اشتراک / کاربر جدید</h2>
-      <label>نام کاربر / مشتری</label>
-      <input type="text" id="username" placeholder="مثال: Arsin_Gamer"/>
+      <h2>➕ ساخت کانفیگ وب‌گردی</h2>
       <div class="row">
-        <div><label>حجم (گیگابایت)</label><input type="number" id="userGB" min="1" max="1000" value="30"/></div>
-        <div><label>اعتبار (روز)</label><input type="number" id="userDays" min="1" max="365" value="30"/></div>
+        <div><label>روز اعتبار</label><input type="number" id="cfgDays" min="1" max="365" value="30"/></div>
+        <div><label>کاربر</label><input type="number" id="cfgUsers" min="1" max="50" value="1"/></div>
+        <div><label>حجم (گیگ)</label><input type="number" id="cfgGB" min="1" max="1000" value="100"/></div>
       </div>
-      <label>انتخاب سرور پایه</label>
-      <select id="serverType">
-        <option value="all">همه سرورها (پکیج کامل VLESS + Shadowsocks)</option>
-        <option value="germany">🇩🇪 سرور تانل آلمان</option>
-        <option value="france">🇫🇷 سرور تانل فرانسه</option>
-        <option value="netmelli">💥 سرور ویژه نت ملی (Raket)</option>
-      </select>
-      <div style="margin-top:14px">
-        <button type="button" class="btn btn-p" id="btnCreateUser">✨ ایجاد کاربر و تولید کانفیگ</button>
-      </div>
+      <label>نام کانفیگ</label>
+      <input type="text" id="cfgName" placeholder="Ahmad_Web_Speed"/>
+      <div style="margin-top:12px"><button type="button" class="btn btn-p" id="btnCreate">✨ ساخت + دانلود</button></div>
     </div>
   </div>
 
-  <div id="tab-list" class="tab">
+  <div id="tab-configs" class="tab">
     <div class="card">
-      <h2>📂 لیست کاربران ثبت‌شده</h2>
-      <div id="userList"></div>
+      <h2>📂 کانفیگ‌های ساخته‌شده</h2>
+      <div id="cfgList"></div>
     </div>
   </div>
 
   <div id="tab-sub" class="tab">
     <div class="card">
-      <h2>🔗 لینک ساب مارزبان اصلی</h2>
-      <p class="meta">لینک ساب اصلی متصل به سرور شما:</p>
-      <input type="text" id="subUrlInput" readonly value="https://sab.lynch.ir/sub/djMsMTQzNzA3LDE3OTE1MzcxODY.dEAwIVon_oSefLDuVWccQhfJ1-f6sGZ75xRG2MBE_tk" style="direction:ltr;text-align:left;color:#86efac;font-family:monospace;font-size:0.8rem"/>
-      <div style="margin-top:10px;display:flex;gap:6px">
-        <button type="button" class="btn btn-p" id="btnCopySub">📋 کپی لینک ساب</button>
-        <button type="button" class="btn btn-g" id="btnOpenSub">🌐 باز کردن لینک</button>
+      <h2>🔗 دریافت لینک ساب</h2>
+      <p class="meta">از این بخش برای هر کانفیگ یا همه کانفیگ‌های فعال، لینک ساب بگیرید.</p>
+      <label>لینک ساب https (آخرین ساخته‌شده)</label>
+      <input type="text" id="subHttps" readonly placeholder="هنوز ساخته نشده" style="direction:ltr;text-align:left;color:#86efac;font-family:monospace;font-size:0.85rem"/>
+      <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">
+        <button type="button" class="btn btn-p" id="btnSubLatest">🚀 لینک آخرین کانفیگ</button>
+        <button type="button" class="btn btn-g" id="btnSubAll">📦 لینک همه فعال‌ها</button>
+        <button type="button" class="btn btn-o" id="btnCopySub">📋 کپی لینک</button>
+        <button type="button" class="btn btn-o" id="btnOpenSub">🌐 باز کردن صفحه ساب</button>
+        <button type="button" class="btn btn-o" id="btnCopyB64">📋 کپی Base64</button>
       </div>
+      <div class="note">پس از تغییرات، لینک ساب را مجدد بسازید. مدیریت: Ahmad</div>
+      <div id="subCfgList" style="margin-top:14px"></div>
     </div>
   </div>
 </div>
@@ -110,16 +109,14 @@ input,select{width:100%;padding:10px;background:#0a1020;border:1px solid var(--b
 
 <script>
 (function(){
-  var STORAGE_KEY = "azvix_v2ray_panel_users_v1";
-  var USERS = [];
-  
-  var BASE_SERVERS = [
-    {name: "Shadowsocks [Arsin]", type: "shadowsocks", link: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqaTFtbU1vc0c5ck9sSHByc2hleXc0NUxSUVNVN0tHcw==@1.1.1.1:1080"},
-    {name: "💥 Raket · ویژه نت ملی", type: "vless", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@gadfather.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=gadfather.zovip2.ir&sni=gadfather.zovip2.ir&fp=chrome"},
-    {name: "🇩🇪 𝐁𝐄𝐑𝐋𝐈𝐍 · تانل آلمان", type: "vless", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@fun.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=toping.zovip2.ir&sni=toping.zovip2.ir&fp=chrome"},
-    {name: "🇫🇷 𝐏𝐀𝐑𝐈𝐒 · تانل فرانسه", type: "vless", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@marz.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=marz.zovip2.ir&sni=marz.zovip2.ir&fp=chrome"},
-    {name: "🇳🇱 𝐀𝐦𝐬𝐭𝐞𝐫𝐝𝐚𝐦 · تانل هلند", type: "vless", link: "vless://2a7f95ab-8584-4118-b442-bd544f118faf@toping.zovip2.ir:443?encryption=none&security=tls&type=ws&headerType=none&path=%2Fgropcdn&host=toping.zovip2.ir&sni=toping.zovip2.ir&fp=chrome"}
-  ];
+  var PANEL = {totalGB:10000, countryName:"سرور وب‌گردی پرسرعت", flag:"🚀", endpoint:"176.65.151.244:46037"};
+  var FIXED_PRIV = "4OLVz3eyiD9IdGfR+YSfxr52AGuT6jHffNayrcgz/lA=";
+  var FIXED_IP = "10.0.0.4";
+  var SERVER_PUB = "MEUeEEDik7tCv3jhgsPz50/3961ga7bBlN/oi5jw7TY=";
+  var STORAGE_KEY = "wg_wireguard_ahmad_web_v1";
+  var CONFIGS = [];
+  var CONSUMED = 0;
+  var LAST_SUB_URL = "";
 
   function toast(msg) {
     var t = document.getElementById("toast");
@@ -136,24 +133,82 @@ input,select{width:100%;padding:10px;background:#0a1020;border:1px solid var(--b
     var el = document.getElementById("tab-" + id);
     if (el) el.classList.add("active");
     if (id === "dash") renderDash();
-    if (id === "list") renderUsers();
+    if (id === "configs") renderList();
+    if (id === "sub") renderSub();
   }
 
   document.querySelectorAll(".nav button").forEach(function(btn){
     btn.addEventListener("click", function(){ switchTab(btn.getAttribute("data-tab")); });
   });
 
-  function loadUsers() {
+  function load() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
-      USERS = raw ? JSON.parse(raw) : [];
-    } catch(e) { USERS = []; }
+      if (raw) {
+        var o = JSON.parse(raw);
+        CONFIGS = o.configs || [];
+        CONSUMED = Number(o.consumedGB) || 0;
+        LAST_SUB_URL = o.httpsSubUrl || "";
+      } else {
+        CONFIGS = [];
+        CONSUMED = 0;
+        save();
+      }
+    } catch (e) { CONFIGS = []; CONSUMED = 0; }
+    CONFIGS.forEach(function(c){
+      if (typeof c.inSub === "undefined") c.inSub = true;
+      if (typeof c.usedGB === "undefined") c.usedGB = 0;
+    });
+  }
+  function save() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ configs: CONFIGS, consumedGB: CONSUMED, httpsSubUrl: LAST_SUB_URL }));
   }
 
-  function saveUsers() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(USERS));
+  function remainingDays(cfg) {
+    if (!cfg) return 0;
+    var endMs = null;
+    if (cfg.expiresAt) endMs = new Date(cfg.expiresAt).getTime();
+    else if (cfg.createdAt && cfg.days) endMs = new Date(cfg.createdAt).getTime() + (Number(cfg.days)||0)*86400000;
+    else return Number(cfg.days)||0;
+    var left = Math.ceil((endMs - Date.now()) / 86400000);
+    return left > 0 ? left : 0;
+  }
+  function isActive(cfg) {
+    if (!cfg || cfg.inSub === false) return false;
+    if (remainingDays(cfg) <= 0) return false;
+    return Math.max(0, (Number(cfg.gb)||0) - (Number(cfg.usedGB)||0)) > 0;
   }
 
+  function buildConf(name, days, gb) {
+    var safe = String(name).replace(/[^\x20-\x7E]/g,"_").slice(0,40);
+    return {
+      conf: [
+        "# Wireguard - Ahmad | Web Browsing",
+        "# Name: " + safe,
+        "# Volume: " + gb + "GB",
+        "# Time: " + days + " days",
+        "",
+        "[Interface]",
+        "PrivateKey = " + FIXED_PRIV,
+        "Address = " + FIXED_IP + "/32",
+        "DNS = 1.1.1.1",
+        "MTU = 1420",
+        "",
+        "[Peer]",
+        "PublicKey = " + SERVER_PUB,
+        "Endpoint = " + PANEL.endpoint,
+        "AllowedIPs = 0.0.0.0/0, ::/0",
+        ""
+      ].join("\n")
+    };
+  }
+
+  function downloadText(text, filename) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "application/octet-stream" }));
+    a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }
   function copyText(text) {
     if (navigator.clipboard && navigator.clipboard.writeText)
       navigator.clipboard.writeText(text).then(function(){ toast("✅ کپی شد"); }).catch(function(){ fallback(text); });
@@ -161,129 +216,257 @@ input,select{width:100%;padding:10px;background:#0a1020;border:1px solid var(--b
   }
   function fallback(text) {
     var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
-    try { document.execCommand("copy"); toast("✅ کپی شد"); } catch(e) { toast("❌ خطا در کپی"); }
+    try { document.execCommand("copy"); toast("✅ کپی شد"); } catch(e) { toast("❌ کپی نشد"); }
     document.body.removeChild(ta);
   }
 
-  function makeLocalQrSvg(text) {
-    try {
-      var qr = qrcode(0, 'L');
-      qr.addData(text);
-      qr.make();
-      return qr.createSvgTag({cellSize: 3, margin: 4});
-    } catch(e) {
-      return '<div style="color:red">خطا در بارکد</div>';
-    }
+  function updateStatus() {
+    var total = Number(PANEL.totalGB)||10000;
+    var used = Math.max(0, Number(CONSUMED)||0);
+    var rem = Math.max(0, total - used);
+    var act = CONFIGS.filter(isActive).length;
+    document.getElementById("statusMeta").innerHTML =
+      "وضعیت سرور: <span style='color:#86efac'>متصل و بهینه برای وب‌گردی پرسرعت</span><br>"+
+      "حجم مصرفی کل: <strong>"+used+"</strong> / "+total+" GB<br>"+
+      "کانفیگ فعال: <strong>"+act+"</strong> / "+CONFIGS.length+"<br><span class='owner'>مدیر: Ahmad</span>";
+    var pct = Math.min(100, Math.round((used/total)*100));
+    var fill = document.getElementById("quotaFill");
+    fill.style.width = pct+"%";
+    fill.style.background = "#3b82f6";
+  }
+
+  function cfgButtons(cfg, i, on) {
+    return '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">'+
+      '<button type="button" class="btn '+(cfg.inSub!==false?"btn-d":"btn-s")+'" data-a="toggle" data-i="'+i+'">'+(cfg.inSub!==false?"🔴 غیرفعال":"🟢 فعال")+'</button>'+
+      '<button type="button" class="btn btn-p" data-a="dl" data-i="'+i+'"'+(on?"":" disabled")+'>⬇️ دانلود</button>'+
+      '<button type="button" class="btn btn-o" data-a="copy" data-i="'+i+'"'+(on?"":" disabled")+'>📋 کپی</button>'+
+      '<button type="button" class="btn btn-o" data-a="qr" data-i="'+i+'"'+(on?"":" disabled")+'>📱 QR</button>'+
+      '<button type="button" class="btn btn-g" data-a="sub" data-i="'+i+'">🔗 لینک ساب</button>'+
+      '<button type="button" class="btn btn-d" data-a="del" data-i="'+i+'">🗑️</button></div>';
+  }
+
+  function renderList() {
+    updateStatus();
+    var list = document.getElementById("cfgList");
+    if (!CONFIGS.length) { list.innerHTML = '<p style="color:var(--muted);text-align:center;padding:16px">هنوز کانفیگی نیست</p>'; return; }
+    var html = "";
+    CONFIGS.forEach(function(cfg, i) {
+      var on = isActive(cfg);
+      var left = remainingDays(cfg);
+      var st = on ? "فعال" : (cfg.inSub===false?"غیرفعال":(left<=0?"منقضی":"حجم تمام"));
+      html += '<div class="cfg" style="opacity:'+(on?1:0.55)+'"><strong>🌐 '+(cfg.name||("#"+(i+1)))+'</strong> <span style="font-size:0.75rem;color:'+(on?"#86efac":"#fca5a5")+'">● '+st+'</span><br>'+
+        '<span style="font-size:0.82rem;color:var(--muted)">'+(cfg.days||0)+' روز • باقی: '+left+' • '+(cfg.gb||0)+' گیگ</span>'+cfgButtons(cfg,i,on)+'</div>';
+    });
+    list.innerHTML = html;
   }
 
   function renderDash() {
-    var totalUsers = USERS.length;
-    var activeUsers = USERS.filter(function(u){ return u.active; }).length;
-    document.getElementById("statusMeta").innerHTML =
-      "تعداد کاربران ثبت‌شده: <strong style='color:#86efac'>" + totalUsers + "</strong> نفر<br>" +
-      "کاربران فعال: <strong style='color:#38bdf8'>" + activeUsers + "</strong> نفر<br>" +
-      "<span class='owner'>پنل اختصاصی PUBGメAZVIX</span>";
-    
-    var fill = document.getElementById("quotaFill");
-    fill.style.width = Math.min(100, (totalUsers * 10)) + "%";
-    fill.style.background = "#38bdf8";
-  }
-
-  function renderUsers() {
-    renderDash();
-    var box = document.getElementById("userList");
-    if (!USERS.length) {
-      box.innerHTML = '<p style="color:var(--muted);text-align:center;padding:16px">هنوز کاربری نساخته‌اید</p>';
-      return;
-    }
+    updateStatus();
+    var box = document.getElementById("dashList");
+    if (!CONFIGS.length) { box.innerHTML = '<p style="color:var(--muted)">کانفیگی نیست</p>'; return; }
     var html = "";
-    USERS.forEach(function(u, idx) {
-      var allLinks = u.links.join("\n");
-      html += '<div class="cfg"><strong>👤 ' + u.name + '</strong> — <span style="color:' + (u.active?'#86efac':'#fca5a5') + '">' + (u.active?'فعال':'غیرفعال') + '</span><br>' +
-        '<span style="font-size:0.8rem;color:var(--muted)">حجم: ' + u.gb + 'GB • اعتبار: ' + u.days + ' روز</span>' +
-        '<div style="margin-top:6px"><label style="font-size:0.75rem;color:var(--accent)">لینک‌های کانفیگ اختصاصی:</label>' +
-        '<textarea readonly style="width:100%;height:60px;font-size:0.7rem;background:#05080f;color:#86efac;direction:ltr;text-align:left;font-family:monospace;padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.1)">' + allLinks + '</textarea></div>' +
-        '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">' +
-        '<button type="button" class="btn btn-p" data-a="copycfg" data-i="' + idx + '">📋 کپی کانفیگ</button>' +
-        '<button type="button" class="btn btn-o" data-a="links" data-i="' + idx + '">📦 نمایش در پنجره جدید</button>' +
-        '<button type="button" class="btn ' + (u.active?'btn-d':'btn-s') + '" data-a="toggle" data-i="' + idx + '">' + (u.active?'غیرفعال‌سازی':'فعال‌سازی') + '</button>' +
-        '<button type="button" class="btn btn-d" data-a="del" data-i="' + idx + '">🗑️ حذف</button>' +
-        '</div></div>';
+    CONFIGS.forEach(function(cfg, i) {
+      var on = isActive(cfg);
+      html += '<div class="cfg"><strong>'+(cfg.name||("#"+(i+1)))+'</strong> — '+(on?"فعال":"غیرفعال")+' | '+(cfg.gb||0)+'GB' +
+        '<br><button type="button" class="btn btn-g" data-a="sub" data-i="'+i+'" style="margin-top:6px">🔗 دریافت لینک ساب</button></div>';
     });
     box.innerHTML = html;
   }
 
-  function createUser() {
-    var name = (document.getElementById("username").value || "").trim();
-    if (!name) { toast("⚠ نام کاربر را وارد کنید"); return; }
-    var gb = parseInt(document.getElementById("userGB").value, 10) || 30;
-    var days = parseInt(document.getElementById("userDays").value, 10) || 30;
-    var sType = document.getElementById("serverType").value;
-
-    var links = BASE_SERVERS.map(function(s){
-      var tag = encodeURIComponent("[" + gb + "GB-" + name + "]");
-      return s.link + "#" + tag;
+  function renderSub() {
+    updateStatus();
+    var el = document.getElementById("subHttps");
+    if (el) { el.value = LAST_SUB_URL || ""; el.placeholder = LAST_SUB_URL ? "" : "هنوز ساخته نشده — دکمه ساخت لینک را بزنید"; }
+    var box = document.getElementById("subCfgList");
+    if (!CONFIGS.length) { box.innerHTML = '<p style="color:var(--muted)">ابتدا کانفیگ بسازید</p>'; return; }
+    var html = '<strong style="color:var(--accent);font-size:0.9rem">لینک ساب برای هر کانفیگ:</strong>';
+    CONFIGS.forEach(function(cfg, i) {
+      var on = isActive(cfg);
+      html += '<div class="cfg"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;align-items:center">'+
+        '<span>'+(cfg.name||("#"+(i+1)))+' — <span style="color:'+(on?"#86efac":"#fca5a5")+'">'+(on?"فعال":"غیرفعال")+'</span></span>'+
+        '<button type="button" class="btn btn-g" data-a="sub" data-i="'+i+'">🔗 ساخت ساب و QR</button></div>'+
+        (cfg.httpsSubUrl ? '<div style="margin-top:6px;font-size:0.72rem;direction:ltr;text-align:left;color:#86efac;word-break:break-all;font-family:monospace">'+cfg.httpsSubUrl+'</div>' : '')+
+        '</div>';
     });
-
-    USERS.unshift({
-      id: "usr_" + Date.now(),
-      name: name,
-      gb: gb,
-      days: days,
-      active: true,
-      links: links,
-      createdAt: new Date().toLocaleDateString("fa-IR")
-    });
-
-    saveUsers();
-    document.getElementById("username").value = "";
-    toast("✅ کاربر با موفقیت ساخته شد");
-    switchTab("list");
+    box.innerHTML = html;
   }
 
-  function handleAction(a, idx) {
-    var u = USERS[idx];
-    if (!u) return;
-    if (a === "copycfg") {
-      copyText(u.links.join("\n"));
-    } else if (a === "links") {
-      var allLinks = u.links.join("\n");
-      var win = window.open("", "_blank");
-      if (win) {
-        win.document.write('<!DOCTYPE html><html dir="rtl"><head><title>لینک‌های ' + u.name + '</title></head><body style="background:#111;color:#fff;padding:20px;font-family:Tahoma"><h2>لینک‌های اختصاصی ' + u.name + '</h2><p style="color:#a78bfa">حجم: ' + u.gb + ' GB | اعتبار: ' + u.days + ' روز</p><textarea style="width:100%;height:200px;background:#222;color:#86efac;direction:ltr;font-family:monospace;padding:10px">' + allLinks + '</textarea><br><br><p style="color:#38bdf8">می‌توانید کپی کنید!</p></body></html>');
-      }
-    } else if (a === "toggle") {
-      u.active = !u.active;
-      saveUsers();
-      renderUsers();
-      toast("🔄 وضعیت تغییر کرد");
-    } else if (a === "del") {
-      if (!confirm("حذف کاربر؟")) return;
-      USERS.splice(idx, 1);
-      saveUsers();
-      renderUsers();
-      toast("🗑️ حذف شد");
+  function buildSubPageHtml(cfg) {
+    var on = isActive(cfg);
+    var nameStr = String(cfg.name || "وب‌گردی");
+    var totalGB = Number(cfg.gb)||0;
+    var confData = on ? (cfg.confText || "") : "";
+    var qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&data=" + encodeURIComponent(confData ? confData.slice(0,1200) : "INACTIVE");
+    return '<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>'+
+      '<title>ساب | '+nameStr.replace(/</g,"")+'</title><style>'+
+      '*{box-sizing:border-box;margin:0;padding:0}body{font-family:Tahoma,Arial,sans-serif;background:linear-gradient(165deg,#0f172a,#1e293b);color:#e2e8f0;padding:14px;min-height:100%}'+
+      '.page{max-width:420px;margin:0 auto}.card{background:rgba(30,41,59,.95);border:1px solid rgba(59,130,246,.3);border-radius:16px;overflow:hidden;margin-bottom:12px}'+
+      '.row{display:flex;justify-content:space-between;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06)}.lbl{color:#60a5fa;font-size:13px}.val{color:#f1f5f9;font-weight:700;direction:ltr;text-align:left;max-width:58%;word-break:break-all}'+
+      '.pill{padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700}.ok{background:rgba(34,197,94,.2);color:#86efac;border:1px solid #22c55e}.off{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid #ef4444}'+
+      '.btn{display:block;width:100%;padding:14px;border:none;border-radius:28px;background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;font-weight:800;cursor:pointer;margin:12px 0;font-family:inherit}'+
+      '.qr{background:#fff;border-radius:16px;padding:16px;text-align:center;margin:12px 0}.conf{background:rgba(15,23,42,.95);border-radius:12px;padding:12px;font-family:monospace;font-size:11px;direction:ltr;text-align:left;max-height:260px;overflow:auto;color:#93c5fd;white-space:pre-wrap;word-break:break-all}'+
+      '.owner{text-align:center;color:#60a5fa;font-weight:700;margin:8px 0}</style></head><body><div class="page">'+
+      '<h2 style="text-align:center;color:#60a5fa">🌐 اطلاعات کانفیگ وب‌گردی</h2><p class="owner">مدیر: Ahmad</p>'+
+      '<div class="card">'+
+      '<div class="row"><span class="lbl">نام</span><span class="val">'+nameStr.replace(/</g,"")+'</span></div>'+
+      '<div class="row"><span class="lbl">حجم</span><span class="val">'+totalGB+' GB</span></div>'+
+      '<div class="row"><span class="lbl">نوع</span><span class="val">سرور اختصاصی وب‌گردی</span></div>'+
+      '<div class="row"><span class="lbl">وضعیت</span><span class="val"><span class="pill '+(on?"ok":"off")+'">'+(on?"فعال":"غیرفعال")+'</span></span></div></div>'+
+      '<div class="conf">'+(confData||"⛔ کانفیگ غیرفعال").replace(/</g,"&lt;")+'</div>'+
+      (on?'<button class="btn" onclick="var c='+JSON.stringify(confData)+';var a=document.createElement(\'a\');a.href=URL.createObjectURL(new Blob([c]));a.download=\'config.conf\';a.click()">⬇️ دانلود فایل</button>':'<button class="btn" disabled>⛔ غیرفعال</button>')+
+      '<div class="qr">'+(on?'<img src="'+qrUrl+'" width="220" height="220"/>':'<div style="padding:80px;color:#60a5fa">⛔ غیرفعال</div>')+'</div>'+
+      '<p class="owner">Ahmad • پرسرعت و بدون قطعی</p></div></body></html>';
+  }
+
+  function buildAllSubPageHtml() {
+    var list = CONFIGS.filter(isActive);
+    if (!list.length) return null;
+    var cards = list.map(function(cfg, idx) {
+      return '<div style="background:#fff;border-radius:14px;padding:14px;margin-bottom:14px;color:#111">'+
+        '<h3>'+(cfg.name||("#"+(idx+1)))+'</h3><p style="color:#16a34a;font-weight:700">● فعال</p>'+
+        '<p>حجم: '+(cfg.gb||0)+' GB</p>'+
+        '<pre style="font-size:11px;overflow:auto;max-height:180px;background:#f5f5f5;padding:8px;direction:ltr;text-align:left">'+(cfg.confText||"").replace(/</g,"&lt;")+'</pre></div>';
+    }).join("");
+    return '<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"/><title>ساب | وب‌گردی Ahmad</title></head>'+
+      '<body style="font-family:Tahoma;background:#f0f2f5;padding:16px;max-width:480px;margin:0 auto">'+
+      '<h2>🌐 ساب همه کانفیگ‌های وب‌گردی</h2><p style="color:#2563eb;font-weight:700">مدیر: Ahmad</p>'+cards+'</body></html>';
+  }
+
+  async function uploadHtml(bodyHtml) {
+    var url = null;
+    try {
+      var res = await fetch("https://api.pastes.dev/post", { method:"POST", headers:{"Content-Type":"text/html; charset=utf-8"}, body: bodyHtml });
+      if (res.ok) { var data = await res.json(); if (data && data.key) url = "https://api.pastes.dev/"+data.key; }
+    } catch(e) {}
+    if (!url) {
+      try {
+        var fd = new FormData();
+        fd.append("file", new Blob([bodyHtml],{type:"text/html;charset=utf-8"}), "sub.html");
+        var res2 = await fetch("https://0x0.st", { method:"POST", body: fd });
+        if (res2.ok) { var t = (await res2.text()).trim(); if (t.indexOf("http")===0) url = t; }
+      } catch(e) {}
+    }
+    return url;
+  }
+
+  async function createSubFor(i) {
+    var cfg = CONFIGS[i];
+    if (!cfg) return;
+    toast("⏳ ساخت لینک ساب و بارکد...");
+    var body = buildSubPageHtml(cfg);
+    var url = await uploadHtml(body);
+    if (url) {
+      cfg.httpsSubUrl = url;
+      LAST_SUB_URL = url;
+      save();
+      var el = document.getElementById("subHttps");
+      if (el) el.value = url;
+      copyText(url);
+      toast("✅ لینک ساب و بارکد ساخته و کپی شد");
+      renderSub(); renderDash(); renderList();
+    } else {
+      window.open(URL.createObjectURL(new Blob([body],{type:"text/html;charset=utf-8"})), "_blank");
+      toast("⚠ هاست در دسترس نبود — صفحه محلی باز شد");
     }
   }
 
-  document.getElementById("btnCreateUser").addEventListener("click", function(e){ e.preventDefault(); createUser(); });
-  document.getElementById("btnCopySub").addEventListener("click", function(){ copyText(document.getElementById("subUrlInput").value); });
-  document.getElementById("btnOpenSub").addEventListener("click", function(){ window.open(document.getElementById("subUrlInput").value, "_blank"); });
-  document.getElementById("btnCopyAll").addEventListener("click", function(){
-    var activeLinks = [];
-    USERS.forEach(function(u){ if(u.active) activeLinks = activeLinks.concat(u.links); });
-    if (!activeLinks.length) { toast("⚠ هیچ کاربر فعالی نیست"); return; }
-    copyText(activeLinks.join("\n"));
+  async function createSubAll() {
+    var body = buildAllSubPageHtml();
+    if (!body) { toast("⚠ کانفیگ فعالی نیست"); return; }
+    toast("⏳ ساخت لینک همه فعال‌ها...");
+    var url = await uploadHtml(body);
+    if (url) {
+      LAST_SUB_URL = url;
+      save();
+      var el = document.getElementById("subHttps");
+      if (el) el.value = url;
+      copyText(url);
+      toast("✅ لینک همه فعال‌ها ساخته شد");
+    } else {
+      window.open(URL.createObjectURL(new Blob([body],{type:"text/html;charset=utf-8"})), "_blank");
+      toast("⚠ صفحه محلی باز شد");
+    }
+  }
+
+  function createConfig() {
+    var days = parseInt(document.getElementById("cfgDays").value,10)||30;
+    var gb = parseInt(document.getElementById("cfgGB").value,10)||100;
+    var name = (document.getElementById("cfgName").value||"").trim();
+    if (!name) name = "Ahmad_Web_Speed";
+    var built = buildConf(name, days, gb);
+    CONFIGS.unshift({
+      id: "cfg_"+Date.now().toString(36), name:name, days:days, gb:gb, usedGB:0,
+      confText: built.conf, createdAt: new Date().toISOString(), expiresAt: new Date(Date.now()+days*86400000).toISOString(), inSub: true, httpsSubUrl: null
+    });
+    CONSUMED = (Number(CONSUMED)||0) + gb;
+    LAST_SUB_URL = "";
+    save();
+    renderList(); renderDash(); renderSub();
+    downloadText(built.conf, name.replace(/\s+/g,"_") + ".conf");
+    toast("✅ کانفیگ وب‌گردی ساخته و دانلود شد");
+    document.getElementById("cfgName").value = "";
+    switchTab("configs");
+  }
+
+  function handleAction(a, i) {
+    var cfg = CONFIGS[i];
+    if (!cfg) return;
+    if (a === "dl") {
+      if (!isActive(cfg)) { toast("⛔ دانلود بسته"); return; }
+      downloadText(cfg.confText, (cfg.name||"config")+".conf");
+    } else if (a === "copy") {
+      if (!isActive(cfg)) { toast("⛔ کپی بسته"); return; }
+      copyText(cfg.confText||"");
+    } else if (a === "qr") {
+      if (!isActive(cfg)) { toast("⛔ QR بسته"); return; }
+      window.open("https://api.qrserver.com/v1/create-qr-code/?size=240x240&data="+encodeURIComponent((cfg.confText||"").slice(0,1200)), "_blank");
+    } else if (a === "toggle") {
+      cfg.inSub = !(cfg.inSub !== false);
+      cfg.httpsSubUrl = null; LAST_SUB_URL = "";
+      save(); renderAll();
+      toast(cfg.inSub!==false?"✅ فعال":"⏸ غیرفعال");
+    } else if (a === "del") {
+      if (!confirm("حذف شود؟")) return;
+      CONFIGS.splice(i,1); LAST_SUB_URL = "";
+      save(); renderAll(); toast("🗑️ حذف شد");
+    } else if (a === "sub") {
+      createSubFor(i);
+    }
+  }
+
+  function renderAll() { renderList(); renderDash(); renderSub(); updateStatus(); }
+
+  document.getElementById("btnCreate").addEventListener("click", function(e){ e.preventDefault(); createConfig(); });
+  document.getElementById("btnSubLatest").addEventListener("click", function(){ if(!CONFIGS.length){toast("کانفیگی نیست");return;} createSubFor(0); });
+  document.getElementById("btnSubAll").addEventListener("click", function(){ createSubAll(); });
+  document.getElementById("btnCopySub").addEventListener("click", function(){
+    var v = document.getElementById("subHttps").value;
+    if (!v || v.indexOf("http")!==0) { toast("⚠ ابتدا لینک بسازید"); return; }
+    copyText(v);
+  });
+  document.getElementById("btnOpenSub").addEventListener("click", function(){
+    var v = document.getElementById("subHttps").value;
+    if (v && v.indexOf("http")===0) window.open(v, "_blank");
+    else if (CONFIGS.length) {
+      var body = buildSubPageHtml(CONFIGS[0]);
+      window.open(URL.createObjectURL(new Blob([body],{type:"text/html;charset=utf-8"})), "_blank");
+    } else toast("کانفیگی نیست");
+  });
+  document.getElementById("btnCopyB64").addEventListener("click", function(){
+    var list = CONFIGS.filter(isActive);
+    if (!list.length) { toast("کانفیگ فعالی نیست"); return; }
+    var body = list.map(function(c,i){ return "# "+(c.name||i)+"\n"+(c.confText||""); }).join("\n\n");
+    try { copyText(btoa(unescape(encodeURIComponent(body)))); } catch(e) { copyText(btoa(body)); }
   });
 
   document.body.addEventListener("click", function(e){
     var btn = e.target.closest("button[data-a]");
-    if (!btn) return;
+    if (!btn || btn.disabled) return;
     handleAction(btn.getAttribute("data-a"), parseInt(btn.getAttribute("data-i"), 10));
   });
 
-  loadUsers();
-  renderDash();
+  load();
+  renderAll();
 })();
 </script>
 </body>
