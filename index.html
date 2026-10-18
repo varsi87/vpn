@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>مگاپنل تخصصی وبگردی (حجم نامحدود) | PUBGメAZVIX</title>
+<title>مگاپنل تخصصی وبگردی (نسخه اورجینال) | PUBGメAZVIX</title>
 <style>
 :root{--accent:#06b6d4;--accent2:#3b82f6;--card:rgba(12,18,34,0.95);--text:#e2e8f0;--muted:#94a3b8;--border:#06b6d455}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -46,7 +46,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
 <div class="wrap">
   <header>
     <h1>🌐 مگاپنل تخصصی وبگردی (حجم کل: نامحدود ∞)</h1>
-    <p style="color:var(--muted);margin-top:6px;font-size:0.9rem">مخصوص وبگردی پرسرعت، دانلود و تماشا بدون محدودیت حجم | PUBGメAZVIX</p>
+    <p style="color:var(--muted);margin-top:6px;font-size:0.9rem">مخصوص وبگردی پرسرعت و اورجینال | PUBGメAZVIX</p>
     <span class="badge">مالک PUBGメAZVIX</span>
   </header>
 
@@ -72,7 +72,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
       <div class="row">
         <div><label>روز اعتبار</label><input type="number" id="cfgDays" min="1" max="365" value="30"/></div>
         <div><label>کاربر</label><input type="number" id="cfgUsers" min="1" max="50" value="1"/></div>
-        <div><label>حجم نمایشی (گیگ)</label><input type="number" id="cfgGB" min="1" max="5000" value="1000"/></div>
+        <div><label>حجم دلخواه (گیگ)</label><input type="number" id="cfgGB" min="1" max="5000" value="50"/></div>
       </div>
       <label>نام کاربر / دستگاه</label>
       <input type="text" id="cfgName" placeholder="Web_User_VIP"/>
@@ -109,7 +109,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
 
 <script>
 (function(){
-  // اطلاعات دقیق کانفیگ وبگردی ارسالی شما با حجم نامحدود واقعی
+  // اطلاعات دقیق و اورجینال وایرگارد وبگردی شما
   var PANEL = { countryName: "سرور وبگردی پرسرعت", flag: "🌐", endpoint: "lord.xvbgcc.dufdtjj.xyz:51820" };
   var FIXED_PRIV = "8GyFNX6v7IvYKC9/h/RfeJ4our/u0RybUnTNJobgE0Y=";
   var FIXED_IP = "10.66.240.160";
@@ -118,7 +118,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
   var DNS_VAL = "178.252.183.36, 193.242.208.98";
   var MTU_VAL = "1400";
   
-  var STORAGE_KEY = "wg_wireguard_web_unlimited_v1";
+  var STORAGE_KEY = "wg_wireguard_web_original_v3";
   var CONFIGS = [];
   var LAST_SUB_URL = "";
 
@@ -155,13 +155,13 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
         LAST_SUB_URL = o.httpsSubUrl || "";
       } else {
         CONFIGS = [{
-          id: "web_default_1",
-          name: "WebUser_Unlimited_1",
-          days: 365,
-          gb: "نامحدود (∞)",
-          confText: buildConf("WebUser_Unlimited_1", 365, "نامحدود").conf,
+          id: "web_original_1",
+          name: "WebUser_Original",
+          days: 30,
+          gb: 50,
+          confText: buildConf("WebUser_Original", 30, 50).conf,
           createdAt: new Date().toISOString(),
-          expiresAt: new Date(Date.now()+365*86400000).toISOString(),
+          expiresAt: new Date(Date.now()+30*86400000).toISOString(),
           inSub: true,
           httpsSubUrl: null
         }];
@@ -181,7 +181,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     var endMs = null;
     if (cfg.expiresAt) endMs = new Date(cfg.expiresAt).getTime();
     else if (cfg.createdAt && cfg.days) endMs = new Date(cfg.createdAt).getTime() + (Number(cfg.days)||0)*86400000;
-    else return 365;
+    else return 30;
     var left = Math.ceil((endMs - Date.now()) / 86400000);
     return left > 0 ? left : 0;
   }
@@ -195,8 +195,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     var conf = [
       "# PANEL WIREGUARD Config | High Speed Web Browsing",
       "# Name: " + safe,
-      "# Type: Unlimited Web Browsing",
-      "# Volume: Unlimited (∞)",
+      "# Volume: " + gb + " GB",
       "# Time: " + days + " days",
       "",
       "[Interface]",
@@ -237,7 +236,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     var statusMeta = document.getElementById("statusMeta");
     if (statusMeta) {
       statusMeta.innerHTML =
-        "وضعیت سرور: 🌐 وبگردی پرسرعت و آزاد<br>"+
+        "وضعیت سرور: 🌐 وبگردی پرسرعت و اورجینال<br>"+
         "حجم کل پنل: <strong style='color:#38bdf8'>نامحدود (∞) — هرگز تمام نمی‌شود!</strong><br>"+
         "کانفیگ‌های فعال: <strong>" + act + "</strong> / " + CONFIGS.length + "<br><span class='owner'>مالک PUBGメAZVIX</span>";
     }
@@ -263,9 +262,9 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     CONFIGS.forEach(function(cfg, i) {
       var on = isActive(cfg);
       var left = remainingDays(cfg);
-      var st = on ? "فعال (نامحدود)" : "غیرفعال";
+      var st = on ? "فعال" : "غیرفعال";
       html += '<div class="cfg" style="opacity:'+(on?1:0.55)+'"><strong>🌐 '+(cfg.name||("#"+(i+1)))+'</strong> <span style="font-size:0.75rem;color:'+(on?"#86efac":"#fca5a5")+'">● '+st+'</span><br>'+
-        '<span style="font-size:0.82rem;color:var(--muted)">اعتبار: '+left+' روز • حجم: نامحدود (∞)</span>'+cfgButtons(cfg,i,on)+'</div>';
+        '<span style="font-size:0.82rem;color:var(--muted)">اعتبار: '+left+' روز • حجم: '+(cfg.gb||50)+' گیگ</span>'+cfgButtons(cfg,i,on)+'</div>';
     });
     list.innerHTML = html;
   }
@@ -278,7 +277,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     var html = "";
     CONFIGS.forEach(function(cfg, i) {
       var on = isActive(cfg);
-      html += '<div class="cfg"><strong>'+(cfg.name||("#"+(i+1)))+'</strong> — '+(on?"فعال":"غیرفعال")+' | حجم: <span style="color:#38bdf8">نامحدود (∞)</span>' +
+      html += '<div class="cfg"><strong>'+(cfg.name||("#"+(i+1)))+'</strong> — '+(on?"فعال":"غیرفعال")+' | حجم: <span style="color:#38bdf8">'+(cfg.gb||50)+' GB</span>' +
         '<br><button type="button" class="btn btn-g" data-a="sub" data-i="'+i+'" style="margin-top:6px">🔗 دریافت لینک ساب</button></div>';
     });
     box.innerHTML = html;
@@ -306,6 +305,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
   function buildSubPageHtml(cfg) {
     var on = isActive(cfg);
     var nameStr = String(cfg.name || "کانفیگ وبگردی");
+    var cfgGB = cfg.gb || 50;
     var confData = on ? (cfg.confText || "") : "";
     var subId = String(cfg.id || Math.random().toString(16).slice(2)).replace(/[^a-zA-Z0-9]/g,"").slice(0,16);
     var qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&data=" + encodeURIComponent(confData ? confData.slice(0,1200) : "INACTIVE");
@@ -318,11 +318,11 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
       '.btn{display:block;width:100%;padding:14px;border:none;border-radius:28px;background:linear-gradient(135deg,#06b6d4,#3b82f6);color:#fff;font-weight:800;cursor:pointer;margin:12px 0;font-family:inherit}'+
       '.qr{background:#fff;border-radius:16px;padding:16px;text-align:center;margin:12px 0}.conf{background:rgba(3,7,18,.95);border-radius:12px;padding:12px;font-family:monospace;font-size:11px;direction:ltr;text-align:left;max-height:260px;overflow:auto;color:#38bdf8;white-space:pre-wrap;word-break:break-all}'+
       '.owner{text-align:center;color:#06b6d4;font-weight:700;margin:8px 0}</style></head><body><div class="page">'+
-      '<h2 style="text-align:center;color:#38bdf8">🌐 کانفیگ وبگردی (حجم نامحدود)</h2><p class="owner">مالک PUBGメAZVIX</p>'+
+      '<h2 style="text-align:center;color:#38bdf8">🌐 کانفیگ وبگردی اورجینال</h2><p class="owner">مالک PUBGメAZVIX</p>'+
       '<div class="card">'+
       '<div class="row"><span class="lbl">نام</span><span class="val">'+nameStr.replace(/</g,"")+'</span></div>'+
       '<div class="row"><span class="lbl">شناسه</span><span class="val">'+subId+'</span></div>'+
-      '<div class="row"><span class="lbl">حجم</span><span class="val" style="color:#38bdf8">نامحدود (∞)</span></div>'+
+      '<div class="row"><span class="lbl">حجم</span><span class="val" style="color:#38bdf8">'+cfgGB+' GB</span></div>'+
       '<div class="row"><span class="lbl">سرور</span><span class="val">وبگردی پرسرعت</span></div>'+
       '<div class="row"><span class="lbl">وضعیت</span><span class="val"><span class="pill '+(on?"ok":"off")+'">'+(on?"فعال":"غیرفعال")+'</span></span></div></div>'+
       '<div class="conf">'+(confData||"⛔ کانفیگ غیرفعال").replace(/</g,"&lt;")+'</div>'+
@@ -336,8 +336,8 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     if (!list.length) return null;
     var cards = list.map(function(cfg, idx) {
       return '<div style="background:#fff;border-radius:14px;padding:14px;margin-bottom:14px;color:#111">'+
-        '<h3>'+(cfg.name||("#"+(idx+1)))+'</h3><p style="color:#16a34a;font-weight:700">● فعال (وبگردی - نامحدود)</p>'+
-        '<p>حجم: نامحدود (∞)</p>'+
+        '<h3>'+(cfg.name||("#"+(idx+1)))+'</h3><p style="color:#16a34a;font-weight:700">● فعال (وبگردی)</p>'+
+        '<p>حجم: '+(cfg.gb||50)+' GB</p>'+
         '<pre style="font-size:11px;overflow:auto;max-height:180px;background:#f5f5f5;padding:8px;direction:ltr;text-align:left">'+(cfg.confText||"").replace(/</g,"&lt;")+'</pre></div>';
     }).join("");
     return '<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"/><title>ساب | مگاپنل وبگردی</title></head>'+
@@ -403,17 +403,18 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
 
   function createConfig() {
     var days = parseInt(document.getElementById("cfgDays").value,10)||30;
+    var gb = parseInt(document.getElementById("cfgGB").value,10)||50;
     var name = (document.getElementById("cfgName").value||"").trim() || ("WebUser_" + (CONFIGS.length+1));
-    var built = buildConf(name, days, "نامحدود");
+    var built = buildConf(name, days, gb);
     CONFIGS.unshift({
-      id: "cfg_"+Date.now().toString(36), name: name, days: days, gb: "نامحدود (∞)",
+      id: "cfg_"+Date.now().toString(36), name: name, days: days, gb: gb,
       confText: built.conf, createdAt: new Date().toISOString(), expiresAt: new Date(Date.now()+days*86400000).toISOString(), inSub: true, httpsSubUrl: null
     });
     LAST_SUB_URL = "";
     save();
     renderList(); renderDash(); renderSub();
     downloadText(built.conf, name.replace(/[\\/:*?"<>|]+/g,"_").replace(/\s+/g,"_").slice(0,60)+".conf");
-    toast("✅ کانفیگ وبگردی نامحدود ساخته و دانلود شد");
+    toast("✅ کانفیگ اورجینال ساخته شد");
     document.getElementById("cfgName").value = "";
     switchTab("configs");
   }
@@ -438,7 +439,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
       toast(cfg.inSub!==false?"✅ فعال شد":"⏸ غیرفعال شد");
     } else if (a === "reset") {
       if (!confirm("آپدیت این کانفیگ؟")) return;
-      var built = buildConf(cfg.name, cfg.days, "نامحدود");
+      var built = buildConf(cfg.name, cfg.days, cfg.gb || 50);
       cfg.confText = built.conf;
       cfg.httpsSubUrl = null; LAST_SUB_URL = "";
       save(); renderAll(); toast("🔄 آپدیت شد");
@@ -484,7 +485,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
       if (v && v.indexOf("http")!==0) window.open(v, "_blank");
       else if (CONFIGS.length) {
         var body = buildSubPageHtml(CONFIGS[0]);
-        window.open(URL.createObjectURL(new Blob([body],{type:"text/html;charset=utf-8"})), "_blank");
+        window.open(URL.createObjectURL(new Blob([body],{type: "text/html;charset=utf-8"})), "_blank");
       } else toast("کانفیگی نیست");
     });
   }
@@ -509,7 +510,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
 
   load();
   renderAll();
-  toast("مگاپنل وبگردی نامحدود آماده شد!");
+  toast("مگاپنل اورجینال وبگردی آماده شد!");
 })();
 </script>
 </body>
