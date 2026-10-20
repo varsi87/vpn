@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>مگاپنل هیولای TR (حجم کل: 50,000 GB) | PUBGメAZVIX</title>
+<title>مگاپنل موشکی TR (بهینه‌شده) | PUBGメAZVIX</title>
 <style>
 :root{--accent:#10b981;--accent2:#3b82f6;--card:rgba(12,18,34,0.95);--text:#e2e8f0;--muted:#94a3b8;--border:#10b98155}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -45,8 +45,8 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
 <body>
 <div class="wrap">
   <header>
-    <h1>🔥 مگاپنل هیولای TR (حجم کل: 50,000 GB)</h1>
-    <p style="color:var(--muted);margin-top:6px;font-size:0.9rem">مخصوص کانفیگ TR با سرعت بالا | PUBGメAZVIX</p>
+    <h1>🚀 مگاپنل موشکی TR (بهینه‌شده با MTU 1280)</h1>
+    <p style="color:var(--muted);margin-top:6px;font-size:0.9rem">سرعت بالا و بدون افت پکت | PUBGメAZVIX</p>
     <span class="badge">مالک PUBGメAZVIX</span>
   </header>
 
@@ -75,7 +75,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
         <div><label>حجم دلخواه (گیگ)</label><input type="number" id="cfgGB" min="1" max="50000" value="1000"/></div>
       </div>
       <label>نام کاربر / دستگاه</label>
-      <input type="text" id="cfgName" placeholder="TR_Monster_User"/>
+      <input type="text" id="cfgName" placeholder="TR_Rocket_User"/>
       <div style="margin-top:12px"><button type="button" class="btn btn-p" id="btnCreate">✨ ساخت + دانلود</button></div>
     </div>
   </div>
@@ -109,17 +109,16 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
 
 <script>
 (function(){
-  // اطلاعات دقیق کانفیگ TR شما[span_5](start_span)[span_5](end_span)
-  var PANEL = { "totalGB": 50000, countryName: "سرور TR پرسرعت", flag: "🔥", endpoint: "w.xorfuno.ir:58855" };
+  var PANEL = { "totalGB": 50000, countryName: "سرور TR موشکی", flag: "🚀", endpoint: "w.xorfuno.ir:58855" };
   var FIXED_PRIV = "+LBFoYbszQqVft7++p1W04GPOq7OOig34QyuD+pbnW8=";
   var FIXED_IP = "10.0.0.8";
   var SERVER_PUB = "d1qdo2tRvHgNdWLQSs0/3EfczuepNGlneRdoFJTwSgU=";
   var PSK = "I/ALsuKwHu6UWKoXW1txrefmErLmAbPHZZErPSVYlQY=";
   var ALLOWED_IPS = "0.0.0.0/0, ::/0";
-  var DNS_VAL = "1.1.1.2, 1.0.0.2";
-  var MTU_VAL = "1380";
+  var DNS_VAL = "1.1.1.1, 8.8.8.8";
+  var MTU_VAL = "1280"; // بهینه‌شده برای عبور از سرعت‌گیرهای نت ملی
   
-  var STORAGE_KEY = "wg_wireguard_tr_50tb_v1";
+  var STORAGE_KEY = "wg_wireguard_tr_fast_v2";
   var CONFIGS = [];
   var CONSUMED = 0;
   var LAST_SUB_URL = "";
@@ -158,12 +157,12 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
         LAST_SUB_URL = o.httpsSubUrl || "";
       } else {
         CONFIGS = [{
-          id: "tr_50tb_1",
-          name: "TR_Monster_VIP",
+          id: "tr_fast_1",
+          name: "TR_Rocket_VIP",
           days: 30,
           gb: 100,
           usedGB: 0,
-          confText: buildConf("TR_Monster_VIP", 30, 100).conf,
+          confText: buildConf("TR_Rocket_VIP", 30, 100).conf,
           createdAt: new Date().toISOString(),
           expiresAt: new Date(Date.now()+30*86400000).toISOString(),
           inSub: true,
@@ -246,7 +245,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     var statusMeta = document.getElementById("statusMeta");
     if (statusMeta) {
       statusMeta.innerHTML =
-        "وضعیت سرور: 🔥 هیولای ۵۰ ترابایتی TR<br>"+
+        "وضعیت سرور: 🚀 موشکی TR (MTU 1280)<br>"+
         "حجم مصرفی کل: <strong style='color:#10b981'>" + used + "</strong> / " + total + " GB — باقی‌مانده: <strong>" + rem + "</strong> GB<br>"+
         "کانفیگ‌های فعال: <strong>" + act + "</strong> / " + CONFIGS.length + "<br><span class='owner'>مالک PUBGメAZVIX</span>";
     }
@@ -280,8 +279,8 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     CONFIGS.forEach(function(cfg, i) {
       var on = isActive(cfg);
       var left = remainingDays(cfg);
-      var st = on ? "فعال (سرور TR)" : "غیرفعال";
-      html += '<div class="cfg" style="opacity:'+(on?1:0.55)+'"><strong>🔥 '+(cfg.name||("#"+(i+1)))+'</strong> <span style="font-size:0.75rem;color:'+(on?"#86efac":"#fca5a5")+'">● '+st+'</span><br>'+
+      var st = on ? "فعال (موشکی TR)" : "غیرفعال";
+      html += '<div class="cfg" style="opacity:'+(on?1:0.55)+'"><strong>🚀 '+(cfg.name||("#"+(i+1)))+'</strong> <span style="font-size:0.75rem;color:'+(on?"#86efac":"#fca5a5")+'">● '+st+'</span><br>'+
         '<span style="font-size:0.82rem;color:var(--muted)">اعتبار: '+left+' روز • حجم: '+(cfg.gb||100)+' گیگ</span>'+cfgButtons(cfg,i,on)+'</div>';
     });
     list.innerHTML = html;
@@ -336,17 +335,17 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
       '.btn{display:block;width:100%;padding:14px;border:none;border-radius:28px;background:linear-gradient(135deg,#10b981,#3b82f6);color:#fff;font-weight:800;cursor:pointer;margin:12px 0;font-family:inherit}'+
       '.qr{background:#fff;border-radius:16px;padding:16px;text-align:center;margin:12px 0}.conf{background:rgba(3,7,18,.95);border-radius:12px;padding:12px;font-family:monospace;font-size:11px;direction:ltr;text-align:left;max-height:260px;overflow:auto;color:#34d399;white-space:pre-wrap;word-break:break-all}'+
       '.owner{text-align:center;color:#10b981;font-weight:700;margin:8px 0}</style></head><body><div class="page">'+
-      '<h2 style="text-align:center;color:#10b981">🔥 کانفیگ هیولای TR (۵۰ ترابایت)</h2><p class="owner">مالک PUBGメAZVIX</p>'+
+      '<h2 style="text-align:center;color:#10b981">🚀 کانفیگ موشکی TR</h2><p class="owner">مالک PUBGメAZVIX</p>'+
       '<div class="card">'+
       '<div class="row"><span class="lbl">نام</span><span class="val">'+nameStr.replace(/</g,"")+'</span></div>'+
       '<div class="row"><span class="lbl">شناسه</span><span class="val">'+subId+'</span></div>'+
       '<div class="row"><span class="lbl">حجم</span><span class="val" style="color:#10b981">'+cfgGB+' GB</span></div>'+
-      '<div class="row"><span class="lbl">سرور</span><span class="val">TR پرسرعت</span></div>'+
+      '<div class="row"><span class="lbl">سرور</span><span class="val">بهینه‌شده (MTU 1280)</span></div>'+
       '<div class="row"><span class="lbl">وضعیت</span><span class="val"><span class="pill '+(on?"ok":"off")+'">'+(on?"فعال":"غیرفعال")+'</span></span></div></div>'+
       '<div class="conf">'+(confData||"⛔ کانفیگ غیرفعال").replace(/</g,"&lt;")+'</div>'+
       (on?'<button class="btn" onclick="var c='+JSON.stringify(confData)+';var a=document.createElement(\'a\');a.href=URL.createObjectURL(new Blob([c]));a.download=\'config.conf\';a.click()">⬇️ دانلود</button>':'<button class="btn" disabled>⛔ غیرفعال</button>')+
       '<div class="qr">'+(on?'<img src="'+qrUrl+'" width="220" height="220"/>':'<div style="padding:80px;color:#10b981">⛔ غیرفعال</div>')+'</div>'+
-      '<p class="owner">سرور TR فوق‌العاده • مالک PUBGメAZVIX</p></div></body></html>';
+      '<p class="owner">سرعت بالا • مالک PUBGメAZVIX</p></div></body></html>';
   }
 
   function buildAllSubPageHtml() {
@@ -354,13 +353,13 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     if (!list.length) return null;
     var cards = list.map(function(cfg, idx) {
       return '<div style="background:#fff;border-radius:14px;padding:14px;margin-bottom:14px;color:#111">'+
-        '<h3>'+(cfg.name||("#"+(idx+1)))+'</h3><p style="color:#16a34a;font-weight:700">● فعال (TR)</p>'+
+        '<h3>'+(cfg.name||("#"+(idx+1)))+'</h3><p style="color:#16a34a;font-weight:700">● فعال (موشکی)</p>'+
         '<p>حجم: '+(cfg.gb||100)+' GB</p>'+
         '<pre style="font-size:11px;overflow:auto;max-height:180px;background:#f5f5f5;padding:8px;direction:ltr;text-align:left">'+(cfg.confText||"").replace(/</g,"&lt;")+'</pre></div>';
     }).join("");
     return '<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"/><title>ساب | مگاپنل TR</title></head>'+
       '<body style="font-family:Tahoma;background:#f0f2f5;padding:16px;max-width:480px;margin:0 auto">'+
-      '<h2>🔥 ساب همه کانفیگ‌های TR</h2><p style="color:#059669;font-weight:700">مالک PUBGメAZVIX</p>'+cards+'</body></html>';
+      '<h2>🚀 ساب همه کانفیگ‌ها</h2><p style="color:#059669;font-weight:700">مالک PUBGメAZVIX</p>'+cards+'</body></html>';
   }
 
   async function uploadHtml(bodyHtml) {
@@ -437,7 +436,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
     save();
     renderList(); renderDash(); renderSub();
     downloadText(built.conf, name.replace(/[\\/:*?"<>|]+/g,"_").replace(/\s+/g,"_").slice(0,60)+".conf");
-    toast("✅ کانفیگ TR ساخته شد");
+    toast("✅ کانفیگ موشکی ساخته شد");
     document.getElementById("cfgName").value = "";
     switchTab("configs");
   }
@@ -534,7 +533,7 @@ textarea{min-height:70px;font-family:monospace;font-size:0.75rem;direction:ltr;t
 
   load();
   renderAll();
-  toast("مگاپنل ۵۰ ترابایتی TR آماده شد!");
+  toast("مگاپنل موشکی TR آماده شد!");
 })();
 </script>
 </body>
